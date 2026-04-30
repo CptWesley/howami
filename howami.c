@@ -198,6 +198,9 @@ char *feelings[] = {
 
 static unsigned int get_user_hash() {
 	char *user = getenv(ENV_VAR);
+	if (!user) {
+		return 0;
+	}
 	
 	unsigned int result = 0;
 	for (int i = 0; user[i] != '\0'; i++) {
